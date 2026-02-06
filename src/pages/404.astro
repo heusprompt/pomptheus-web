@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = '404 — Page Not Found';
+const description = 'The page you\'re looking for doesn\'t exist. Let me help you find your way back.';
+---
+
+<Layout title={title} description={description}>
+  <section class="section flex items-center justify-center">
+    <div class="container-custom max-w-2xl text-center" data-animate>
+      <div class="text-9xl font-bold text-transparent bg-gradient-to-r from-ember-400 to-flame-400 bg-clip-text mb-6">
+        404
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Page Not Found
+      </h1>
+      <p class="text-xl text-slate-400 mb-8">
+        Looks like you've wandered into the void. Even fire-bringers can't light a path that doesn't exist.
+      </p>
+      <p class="text-slate-400 mb-8">
+        Let's get you back on track. Try one of these:
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="btn-primary">
+          Return Home
+        </a>
+        <a href="/projects/" class="btn-outline">
+          View Projects
+        </a>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-800">
+        <p class="text-sm text-slate-500 mb-6">
+          If you think this is a mistake, let me know:
+        </p>
+        <a href="mailto:promptheus@zohomail.eu" class="text-ember-400 hover:text-ember-300">
+          promptheus@zohomail.eu
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

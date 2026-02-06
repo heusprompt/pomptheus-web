@@ -1,0 +1,125 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
+  secondary_cta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  cta,
+  secondary_cta,
+} = Astro.props;
+---
+
+<section class="relative py-24 md:py-32 lg:py-40 px-4 md:px-8 lg:px-12 overflow-hidden">
+  <!-- Background glow effect -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-fire-glow blur-3xl -z-10"
+    >
+    </div>
+  </div>
+
+  <div class="container-custom relative z-10">
+    <!-- Main content -->
+    <div class="max-w-4xl mx-auto text-center" data-animate>
+      <!-- Subtitle -->
+      {
+        subtitle && (
+          <p class="text-sm md:text-base font-semibold text-ember-400 uppercase tracking-widest mb-4">
+            {subtitle}
+          </p>
+        )
+      }
+
+      <!-- Main Title -->
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
+        <span class="block">{title}</span>
+        <span class="block bg-gradient-to-r from-ember-400 via-flame-400 to-orange-400 bg-clip-text text-transparent animate-glow">
+          🔥
+        </span>
+      </h1>
+
+      <!-- Description -->
+      {
+        description && (
+          <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+            {description}
+          </p>
+        )
+      }
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+        {
+          cta && (
+            <a
+              href={cta.href}
+              class="btn-primary"
+            >
+              {cta.text}
+            </a>
+          )
+        }
+        {
+          secondary_cta && (
+            <a
+              href={secondary_cta.href}
+              class="btn-outline"
+            >
+              {secondary_cta.text}
+            </a>
+          )
+        }
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="mt-16 hidden md:block">
+        <div class="flex justify-center animate-bounce">
+          <svg
+            class="w-6 h-6 text-ember-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            >
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes glow {
+    0%, 100% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 20px rgba(239, 109, 75, 0.6));
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 30px rgba(239, 109, 75, 1));
+    }
+  }
+
+  :global(.animate-glow) {
+    animation: glow 2s ease-in-out infinite;
+  }
+</style>

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+/* Tailwind CSS v4 imports */
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 font-sans;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-orange-600 rounded-full hover:bg-orange-500;
+}
+
+/* Links */
+a {
+  @apply transition-colors duration-200;
+}
+
+a:hover {
+  @apply text-orange-400;
+}
+
+/* Code blocks */
+code {
+  @apply bg-slate-900 px-2 py-1 rounded text-sm font-mono text-orange-300;
+}
+
+pre code {
+  @apply bg-slate-900 p-4;
+}
+
+/* Selection */
+::selection {
+  @apply bg-orange-600 text-white;
+}
+
+/* Fire icon styling */
+.fire-icon {
+  @apply inline-block animate-pulse text-orange-500;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+}
+
+/* Button base styles */
+.btn {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+}
+
+.btn-primary {
+  @apply btn bg-orange-600 text-white hover:bg-orange-500;
+}
+
+.btn-secondary {
+  @apply btn bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700;
+}
+
+.btn-outline {
+  @apply btn border-2 border-orange-500 text-orange-400 hover:bg-orange-600 hover:text-white;
+}
+
+/* Section spacing */
+.section {
+  @apply py-16 md:py-24 px-4 md:px-8 lg:px-12;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-6xl mx-auto;
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+/* Link styles */
+.link-fire {
+  @apply text-orange-400 hover:text-orange-300 underline;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-950;
+}
+
+/* Hero glow effect */
+.hero-glow {
+  @apply bg-fire-glow;
+}
+
+/* Fire glow background */
+.bg-fire-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(239, 109, 75, 0.2) 0%, transparent 70%);
+}
+
+/* Animations */
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 20px rgba(239, 109, 75, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(239, 109, 75, 1));
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+/* Smooth scroll behavior for [data-animate] elements */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
