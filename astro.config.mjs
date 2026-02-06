@@ -7,5 +7,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwind()],
   },
-  site: 'https://pomptheus.dev',
+  site: 'https://heusprompt.github.io/pomptheus-web',
+  base: '/pomptheus-web',
 });
